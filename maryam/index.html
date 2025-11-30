@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Maryam Rasheed — Graphic Designer</title>
+  <style>
+    :root{
+      --cream:#F8F2EA;
+      --sand:#D8C4A8;
+      --accent:#8B5E34; /* Deep brown accent */
+      --text:#2C1E0F;
+      --muted:#7A6A58;
+      --glass: rgba(255,245,235,0.5);
+      --card-shadow: 0 8px 20px rgba(50,30,10,0.12);
+      font-family: Inter, system-ui;
+    }
+    html,body{height:100%;background:linear-gradient(180deg,var(--cream),#FFF);color:var(--text);margin:0}
+    .container{max-width:1100px;margin:40px auto;padding:28px}
+
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:62px;height:62px;border-radius:14px;background:linear-gradient(135deg,var(--sand),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;box-shadow:var(--card-shadow)}
+    .brand h1{font-size:22px;margin:0}
+    nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-weight:600}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:28px;margin-top:26px;align-items:center}
+    .hero-card{background:var(--glass);backdrop-filter:blur(6px);padding:26px;border-radius:18px;box-shadow:var(--card-shadow)}
+    .hero h2{margin:0;font-size:28px}
+    .hero p{color:var(--muted);margin-top:8px}
+    .cta{margin-top:16px}
+    .btn{display:inline-block;padding:10px 16px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;box-shadow:0 6px 12px rgba(0,0,0,0.06)}
+
+    /* contact */
+    .contact{background:#fff;padding:18px;border-radius:14px;border:1px solid #f0ebe3}
+    .contact p{margin:6px 0;color:var(--muted)}
+
+    /* Sections */
+    section{margin-top:28px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:#fff;padding:18px;border-radius:12px;box-shadow:var(--card-shadow)}
+    .skills-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .chip{padding:8px 10px;background:var(--cream);border-radius:999px;border:1px solid #efe7d9;color:var(--muted);font-weight:600}
+
+    /* Projects gallery */
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:14px}
+    .project{border-radius:12px;overflow:hidden;position:relative;background:linear-gradient(180deg,#fff,#fbf8f3)}
+    .project img{width:100%;height:200px;object-fit:cover;display:block}
+    .project .meta{padding:12px}
+    .project h4{margin:0}
+    .project p{margin:6px 0;color:var(--muted);font-size:14px}
+    .project .view{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,0.65);color:#fff;padding:8px 10px;border-radius:10px;cursor:pointer}
+
+    /* modal */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(18,18,18,0.6);z-index:60}
+    .modal.open{display:flex}
+    .modal .box{max-width:900px;width:94%;background:#fff;padding:16px;border-radius:12px}
+    .modal img{
+      width:100%;
+      height:auto;
+      max-height:90vh;
+      object-fit:contain;
+      border-radius:8px;
+      display:block;
+    }
+    .close-btn{float:right;background:#eee;border-radius:8px;padding:6px 8px;cursor:pointer}
+
+    footer{margin-top:28px;color:var(--muted);text-align:center;padding:18px}
+
+    /* Responsive */
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .projects{grid-template-columns:repeat(2,1fr)}
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:560px){
+      .projects{grid-template-columns:1fr}
+      nav{display:none}
+    }
+    /* Smooth fade-in */
+    .fade{
+      opacity:0;
+      transform:translateY(20px);
+      animation:fadeIn 0.8s ease forwards;
+    }
+    @keyframes fadeIn{
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    /* Hover float */
+    .float:hover{
+      transform:translateY(-6px);
+      transition:0.3s ease;
+    }
+
+    /* Card glow hover */
+    .card:hover{
+      box-shadow:0 10px 26px rgba(80,50,20,0.18);
+      transition:0.3s ease;
+    }
+
+    /* Project scale hover */
+    .project:hover{
+      transform:scale(1.03);
+      transition:0.25s ease;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">MR</div>
+        <div>
+          <h1>Maryam Rasheed</h1>
+          <div style="color:var(--muted);font-size:13px">Graphic Designer • Visual Branding</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <div class="hero-card">
+        <h2>Crafting clean, memorable visual identities</h2>
+        <p>I design social media posters, branding assets and layouts that help small businesses and creators stand out. I combine creativity with a detail-driven workflow for consistent brand results.</p>
+        <div class="cta">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn" style="background:#fff;color:var(--accent);margin-left:10px;border:1px solid #efe7d9;font-weight:700;text-decoration:none" href="file:///C:/Users/user/AppData/Local/Microsoft/Windows/INetCache/IE/ACA2PQO1/Maryam_rasheed_cv[1].pdf" download>Download CV</a>
+        </div>
+
+        <div style="display:flex;gap:12px;margin-top:16px;align-items:center">
+          <div class="contact">
+            <div style="font-weight:700">Contact</div>
+            <p id="email">email: —</p>
+            <p id="phone">phone: —</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card">
+          <h3>Quick Facts</h3>
+          <div style="color:var(--muted);margin-top:8px">
+            <strong>Location</strong>: Pakistan<br>
+            <strong>Tools</strong>: Adobe Illustrator, Canva, Figma<br>
+            <strong>Languages</strong>: English, Urdu
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <h3>Skills</h3>
+          <div class="skills-list">
+            <div class="chip">Branding</div>
+            <div class="chip">Social Posts</div>
+            <div class="chip">Poster Design</div>
+            <div class="chip">Layout</div>
+            <div class="chip">Typography</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="card">
+        <h3>About</h3>
+        <p style="color:var(--muted);margin-top:8px">Creative and detail-oriented graphic designer with experience creating engaging social media content, posters and brand assets. I focus on clear visual communication, simple palettes and consistent typography for modern, elegant output.</p>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h3 style="margin-top:8px">Selected Projects</h3>
+      <div style="margin-top:8px;color:var(--muted)">Click any project to view larger and read details.</div>
+      <div class="projects" id="gallery">
+        <!-- FOOD APP & COURSES APP PROJECTS WILL BE ADDED HERE -->
+        <div class="project" data-title="Promotional Poster — Cafe Launch" data-desc="Poster created for a cafe launch. Focus: warm tones, legible headline, layered shapes." data-image="./images/1.jpg">
+          <img src="./images/1.jpg" alt="Poster 1" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=600 height=400><rect width=100% height=100% fill=\'%23efe7d9\'/><text x=50% y=50% dominant-baseline=middle text-anchor=middle font-family=Arial font-size=20 fill=\'%23666666\'>Replace with poster1.jpg</text></svg>'">
+          <div class="meta">
+            <h4>Promotional Poster</h4>
+            <p>Poster for cafe launch • Adobe Illustrator</p>
+          </div>
+          <div class="view" onclick="openModal(this)">View</div>
+        </div>
+
+        <div class="project" data-title="Social Campaign — Awareness" data-desc="Series of social posts to raise awareness. Consistent grid layouts and branded colors." data-image="./images/WhatsApp Image 2025-11-29 at 17.13.08_dc867579.jpg">
+          <img src="./images/WhatsApp Image 2025-11-29 at 17.13.08_dc867579.jpg" alt="Project 1" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=600 height=400><rect width=100% height=100% fill=\'%23efe7d9\'/><text x=50% y=50% dominant-baseline=middle text-anchor=middle font-family=Arial font-size=20 fill=\'%23666666\'>Replace with project1.jpg</text></svg>'">
+          <div class="meta">
+            <h4>Social Campaign</h4>
+            <p>Series posts • Canva</p>
+          </div>
+          <div class="view" onclick="openModal(this)">View</div>
+        </div>
+
+        <div class="project" data-title="Brand Identity — Small Business" data-desc="A compact brand identity including logo, color palette and social tiles." data-image="./images/2.jpg">
+          <img src="./images/2.jpg" alt="Project 2" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=600 height=400><rect width=100% height=100% fill=\'%23efe7d9\'/><text x=50% y=50% dominant-baseline=middle text-anchor=middle font-family=Arial font-size=20 fill=\'%23666666\'>Replace with project2.jpg</text></svg>'">
+          <div class="meta">
+            <h4>Brand Identity</h4>
+            <p>Logo & brand assets • Illustrator</p>
+          </div>
+          <div class="view" onclick="openModal(this)">View</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+      <div class="box">
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <div id="modal-title" style="font-weight:700"></div>
+          <div class="close-btn" onclick="closeModal()">✕</div>
+        </div>
+        <div style="margin-top:8px" id="modal-desc"></div>
+        <div style="margin-top:12px"><img id="modal-img" src="" alt="project"></div>
+      </div>
+    </div>
+
+    <section id="contact">
+      <div class="card">
+        <h3>Contact</h3>
+        <p style="color:var(--muted);margin-top:8px">Want to work together or see the full portfolio? Email or call me.</p>
+        <div style="margin-top:12px">
+          <strong>Email:</strong> <span id="c-email">—</span><br>
+          <strong>Phone:</strong> <span id="c-phone">—</span>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Designed by Romeesa Batool • © <span id="year"></span>
+    </footer>
+  </div>
+
+  <script>
+    // Populate contact details (replace these lines with your real info or keep dynamic)
+    const contact = {
+      email: 'maryamrasheed590@gmail.com',
+      phone: '+92 322 2739008'
+    };
+    document.getElementById('email').innerText = 'email: ' + contact.email;
+    document.getElementById('phone').innerText = 'phone: ' + contact.phone;
+    document.getElementById('c-email').innerText = contact.email;
+    document.getElementById('c-phone').innerText = contact.phone;
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    // Modal functions
+    function openModal(el){
+      const card = el.closest('.project');
+      const title = card.getAttribute('data-title');
+      const desc = card.getAttribute('data-desc');
+      const img = card.getAttribute('data-image');
+      document.getElementById('modal-title').innerText = title;
+      document.getElementById('modal-desc').innerText = desc;
+      document.getElementById('modal-img').src = img;
+      document.getElementById('modal').classList.add('open');
+    }
+    function closeModal(){
+      document.getElementById('modal').classList.remove('open');
+      document.getElementById('modal-img').src = '';
+    }
+
+    // allow close on outside click
+    document.getElementById('modal').addEventListener('click', function(e){
+      if(e.target === this) closeModal();
+    });
+  </script>
+</body>
+</html>
